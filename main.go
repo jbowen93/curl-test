@@ -43,11 +43,11 @@ func getBlockHeaderByNum(client *rpc.Client, args ...interface{}) (*ethtypes.Hea
 
 func main() {
 
-	client, err := ethclient.Dial("http://ethermint0:8545")
+	client, err := ethclient.Dial("http://localhost:8545")
 	if err != nil {
 		panic(err)
 	}
-	rawClient, err := rpc.DialHTTP("http://ethermint0:8545")
+	rawClient, err := rpc.DialHTTP("http://localhost:8545")
 	if err != nil {
 		panic(err)
 	}
