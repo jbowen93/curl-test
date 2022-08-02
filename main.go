@@ -54,6 +54,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	fmt.Println("header1: ", header1)
 	fmt.Println("header1 hash: ", header1.Hash())
 	fmt.Println("header1 parent hash: ", header1.ParentHash)
 
@@ -61,6 +62,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	fmt.Println("header2: ", header2)
 	fmt.Println("header2 hash: ", header2.Hash())
 	fmt.Println("header2 parent hash: ", header2.ParentHash)
 
