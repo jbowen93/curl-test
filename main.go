@@ -57,6 +57,7 @@ func main() {
 	}
 	header1.Coinbase = common.HexToAddress("0xd512181b3dfa6f819cb6c6ae64732542e2fb6002")
 	header1.TxHash = common.Hash{}
+	header1.BaseFee = big.NewInt(0)
 	header1JSON, err := json.MarshalIndent(header1, "", "  ")
 	if err != nil {
 		panic(err)
@@ -71,6 +72,7 @@ func main() {
 	}
 	header2.Coinbase = common.HexToAddress("0xd512181b3dfa6f819cb6c6ae64732542e2fb6002")
 	header2.TxHash = common.Hash{}
+	header2.BaseFee = big.NewInt(0)
 	header2JSON, err := json.MarshalIndent(header2, "", "  ")
 	if err != nil {
 		panic(err)
