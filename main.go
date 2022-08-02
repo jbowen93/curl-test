@@ -57,6 +57,7 @@ func main() {
 	}
 	fmt.Println("unmodified header1 hash: ", header1.Hash())
 	header1.Coinbase = common.HexToAddress("0xd512181b3dfa6f819cb6c6ae64732542e2fb6002")
+	fmt.Println("coinbase header1 hash: ", header1.Hash())
 	header1.TxHash = common.Hash{}
 	header1.BaseFee = big.NewInt(0)
 	header1JSON, err := json.MarshalIndent(header1, "", "  ")
@@ -73,6 +74,7 @@ func main() {
 	}
 	fmt.Println("unmodified header2 hash: ", header2.Hash())
 	header2.Coinbase = common.HexToAddress("0xd512181b3dfa6f819cb6c6ae64732542e2fb6002")
+	fmt.Println("coinbase header2 hash: ", header2.Hash())
 	header2.TxHash = common.Hash{}
 	header2.BaseFee = big.NewInt(0)
 	header2JSON, err := json.MarshalIndent(header2, "", "  ")
