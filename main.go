@@ -54,7 +54,11 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("header1: %+v\n", header1)
+	header1JSON, err := json.MarshalIndent(header1, "", "  ")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("header1 %s\n", string(header1JSON))
 	fmt.Println("header1 hash: ", header1.Hash())
 	fmt.Println("header1 parent hash: ", header1.ParentHash)
 
@@ -62,7 +66,11 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("header2: %+v\n", header2)
+	header2JSON, err := json.MarshalIndent(header2, "", "  ")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("header2 %s\n", string(header2JSON))
 	fmt.Println("header2 hash: ", header2.Hash())
 	fmt.Println("header2 parent hash: ", header2.ParentHash)
 
