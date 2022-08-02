@@ -55,6 +55,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	fmt.Println("unmodified header1 hash: ", header1.Hash())
 	header1.Coinbase = common.HexToAddress("0xd512181b3dfa6f819cb6c6ae64732542e2fb6002")
 	header1.TxHash = common.Hash{}
 	header1.BaseFee = big.NewInt(0)
@@ -63,13 +64,14 @@ func main() {
 		panic(err)
 	}
 	fmt.Printf("header1 %s\n", string(header1JSON))
-	fmt.Println("header1 hash: ", header1.Hash())
+	fmt.Println("modified header1 hash: ", header1.Hash())
 	fmt.Println("header1 parent hash: ", header1.ParentHash)
 
 	header2, err := client.HeaderByNumber(ctx, big.NewInt(int64(2)))
 	if err != nil {
 		panic(err)
 	}
+	fmt.Println("unmodified header2 hash: ", header2.Hash())
 	header2.Coinbase = common.HexToAddress("0xd512181b3dfa6f819cb6c6ae64732542e2fb6002")
 	header2.TxHash = common.Hash{}
 	header2.BaseFee = big.NewInt(0)
@@ -78,7 +80,7 @@ func main() {
 		panic(err)
 	}
 	fmt.Printf("header2 %s\n", string(header2JSON))
-	fmt.Println("header2 hash: ", header2.Hash())
+	fmt.Println("modified header2 hash: ", header2.Hash())
 	fmt.Println("header2 parent hash: ", header2.ParentHash)
 
 }
