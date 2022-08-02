@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"math/big"
 
+	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
 	"github.com/ethereum/go-ethereum"
@@ -54,6 +55,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	header1.Coinbase = common.HexToAddress("0xd512181b3dfa6f819cb6c6ae64732542e2fb6002")
+	header1.TxHash = common.Hash{}
 	header1JSON, err := json.MarshalIndent(header1, "", "  ")
 	if err != nil {
 		panic(err)
@@ -66,6 +69,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	header2.Coinbase = common.HexToAddress("0xd512181b3dfa6f819cb6c6ae64732542e2fb6002")
+	header2.TxHash = common.Hash{}
 	header2JSON, err := json.MarshalIndent(header2, "", "  ")
 	if err != nil {
 		panic(err)
