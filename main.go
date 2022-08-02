@@ -47,12 +47,15 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	rawClient, err := rpc.DialHTTP("http://localhost:8545")
+
+	ctx := context.Background()
+
+	header1, err := client.HeaderByNumber(ctx, big.NewInt(int64(1)))
 	if err != nil {
 		panic(err)
 	}
-
-	ctx := context.Background()
+	fmt.Println("header1 hash: ", header1.Hash())
+	fmt.Println("header1 parent hash: ", header1.ParentHash)
 
 	header2, err := client.HeaderByNumber(ctx, big.NewInt(int64(2)))
 	if err != nil {
@@ -61,10 +64,4 @@ func main() {
 	fmt.Println("header2 hash: ", header2.Hash())
 	fmt.Println("header2 parent hash: ", header2.ParentHash)
 
-	rawHeader2, err := getBlockHeaderByNum(rawClient, toBlockNumArg(big.NewInt(int64(2))), true)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println("rawHeader2 hash: ", rawHeader2.Hash())
-	fmt.Println("rawheader2 parent hash: ", rawHeader2.ParentHash)
 }
