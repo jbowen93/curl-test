@@ -58,17 +58,13 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println("header2: ", header2)
 	fmt.Println("header2 hash: ", header2.Hash())
+	fmt.Println("header2 parent hash: ", header2.ParentHash)
 
-	// i := 0
 	rawHeader2, err := getBlockHeaderByNum(rawClient, toBlockNumArg(big.NewInt(int64(2))), true)
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println("rawHeader2: ", rawHeader2)
 	fmt.Println("rawHeader2 hash: ", rawHeader2.Hash())
-
-	// Start from chain genesis
-	// height := 0
+	fmt.Println("rawheader2 parent hash: ", rawHeader2.ParentHash)
 }
