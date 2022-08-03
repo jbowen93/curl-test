@@ -70,7 +70,7 @@ func main() {
 	fmt.Println("modified header1 hash: ", header1.Hash())
 	fmt.Println("header1 parent hash: ", header1.ParentHash)
 
-	header2, err := client.HeaderByNumber(ctx, big.NewInt(int64(2)))
+	header2, err := client.HeaderByNumber(ctx, big.NewInt(int64(8)))
 	if err != nil {
 		panic(err)
 	}
