@@ -61,12 +61,12 @@ func main() {
 	fmt.Println("coinbase header1 hash: ", header1.Hash())
 	header1.TxHash = types.EmptyRootHash
 	fmt.Println("TxHash header1 hash: ", header1.Hash())
-	header1.BaseFee = big.NewInt(0)
 	header1JSON, err := json.MarshalIndent(header1, "", "  ")
 	if err != nil {
 		panic(err)
 	}
 	fmt.Printf("header1 %s\n", string(header1JSON))
+	header1.BaseFee = big.NewInt(0)
 	fmt.Println("modified header1 hash: ", header1.Hash())
 	fmt.Println("header1 parent hash: ", header1.ParentHash)
 
@@ -79,12 +79,12 @@ func main() {
 	fmt.Println("coinbase header2 hash: ", header2.Hash())
 	header2.TxHash = types.EmptyRootHash
 	fmt.Println("TxHash header2 hash: ", header2.Hash())
-	header2.BaseFee = big.NewInt(0)
 	header2JSON, err := json.MarshalIndent(header2, "", "  ")
 	if err != nil {
 		panic(err)
 	}
 	fmt.Printf("header2 %s\n", string(header2JSON))
+	header2.BaseFee = big.NewInt(0)
 	fmt.Println("modified header2 hash: ", header2.Hash())
 	fmt.Println("header2 parent hash: ", header2.ParentHash)
 
