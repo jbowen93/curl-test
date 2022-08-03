@@ -79,7 +79,9 @@ func main() {
 	fmt.Println("coinbase header2 hash: ", header2.Hash())
 	// header2.TxHash = types.EmptyRootHash
 	// fmt.Println("TxHash header2 hash: ", header2.Hash())
-	header2.BaseFee = big.NewInt(0)
+	header2.GasUsed = 0
+	fmt.Println("GasUsed header2 hash: ", header2.Hash())
+	// header2.BaseFee = big.NewInt(0)
 	header2JSON, err := json.MarshalIndent(header2, "", "  ")
 	if err != nil {
 		panic(err)
