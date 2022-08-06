@@ -102,7 +102,6 @@ func main() {
 	fmt.Printf("block13 %s\n", string(block13JSON))
 	hasher := trie.NewStackTrie(nil)
 	computed := types.DeriveSha(types.Transactions(block13.Transactions()), hasher)
-	fmt.Printf("header1 %s\n", string(header1JSON))
 	fmt.Printf("block13 computed txHash %s\n", computed)
 	fmt.Printf("block13 retrieved txHash %s\n", block13.TxHash())
 }
