@@ -94,12 +94,11 @@ func main() {
 	fmt.Println("header2 parent hash: ", header2.ParentHash)
 
 	block13, err := client.BlockByNumber(ctx, big.NewInt(int64(13)))
-
-	block13JSON, err := json.MarshalIndent(block13, "", "  ")
+	block13TxJSON, err := json.MarshalIndent(block13.Transactions(), "", "  ")
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("block13 %s\n", string(block13JSON))
+	fmt.Printf("block13 txs %s\n", string(block13TxJSON))
 	hasher := trie.NewStackTrie(nil)
 	computed := types.DeriveSha(types.Transactions(block13.Transactions()), hasher)
 	fmt.Printf("block13 computed txHash %s\n", computed)
