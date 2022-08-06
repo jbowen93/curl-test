@@ -9,6 +9,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/trie"
 
 	"github.com/ethereum/go-ethereum"
 	"github.com/ethereum/go-ethereum/common/hexutil"
@@ -92,4 +93,10 @@ func main() {
 	fmt.Println("modified header2 hash: ", header2.Hash())
 	fmt.Println("header2 parent hash: ", header2.ParentHash)
 
+	block13, err := client.BlockByNumber(ctx, big.NewInt(int64(13)))
+
+	hasher := trie.NewStackTrie(nil)
+	computed := types.DeriveSha(types.Transactions(block13.Transactions()), hasher)
+	fmt.Printf("block13 computed txHash %s\n", computed)
+	fmt.Printf("block13 retrieved txHash %s\n", block13.TxHash())
 }
