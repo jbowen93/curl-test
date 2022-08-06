@@ -93,7 +93,7 @@ func main() {
 	fmt.Println("modified header2 hash: ", header2.Hash())
 	fmt.Println("header2 parent hash: ", header2.ParentHash)
 
-	block13, err := client.BlockByNumber(ctx, big.NewInt(int64(13)))
+	block13, err := client.BlockByNumber(ctx, big.NewInt(int64(3)))
 	block13TxJSON, err := json.MarshalIndent(block13.Transactions(), "", "  ")
 	if err != nil {
 		panic(err)
